@@ -1,9 +1,8 @@
 library(lavaan)
-library(tidyverse)
 
 load("dy11y25_resc.RData")
 
-model_mayer2013_multivariate <- "
+model_mg_lgca <- "
 
 ################################################################################
 ############################# model specification ##############################
@@ -325,11 +324,9 @@ eta_5_22 :=   1*a011 +   1*a111 +   0*a211 + -1*a311 +   0*a411
 
 "
 
-
-
-fit_mayer2013_multivariate <-
+fit_mg_lgca <-
     sem(
-        model_mayer2013_multivariate,
+        model_mg_lgca,
         data = dy11y25_resc,
         group = "group",
         missing = "ml",
@@ -342,5 +339,4 @@ fit_mayer2013_multivariate <-
         )
     )
 
-
-summary(fit_mayer2013_multivariate, fit.measures = T)
+summary(fit_mg_lgca, fit.measures = T)
